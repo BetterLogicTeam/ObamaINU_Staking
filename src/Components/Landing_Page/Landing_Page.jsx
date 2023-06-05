@@ -20,6 +20,8 @@ export default function Landing_Page() {
   const [spinner, setspinner] = useState(false);
 
   const [Stake_history, setStake_history] = useState({
+    WithdrawReward: 0,
+    totalUserAmount: 0,
     totalWithdrawanToken: 0,
     TotalStaker: 0,
     TotalStakedToken: 0,
@@ -44,6 +46,8 @@ export default function Landing_Page() {
             tokenStaking_Abi,
             tokenStaking
           );
+
+
 
           console.log("values", getInput);
 
@@ -82,9 +86,24 @@ if(Number(getInput)>=Number(10000)){
         tokenStaking
       );
 
+      let UserInformation = await stakingContractOf.methods
+            .Users(acc)
+            .call();
+            console.log("Users",UserInformation.DepositeToken);
 
+           let UserInformationdata=(UserInformation.DepositeToken)/1000000000
+           let WithdrawRewardAmount=(UserInformation.WithdrawReward)/1000000000
+
+           setStake_history((oldData) => {
+            return { ...oldData, UserInformationdata: UserInformationdata };
+          });
+          setStake_history((oldData) => {
+            return { ...oldData, WithdrawRewardAmount: WithdrawRewardAmount };
+          });
+    
 
       let Token_BalanceOf = await tokenContractOf.methods.balanceOf(acc).call();
+      Token_BalanceOf=Token_BalanceOf/1000000000
       console.log("Token_BalanceOf", Token_BalanceOf);
       setStake_history((oldData) => {
         return { ...oldData, Token_BalanceOf: Token_BalanceOf };
@@ -169,7 +188,7 @@ if(Number(getInput)>=Number(10000)){
         </div>
         <div className="flex flex-col items-center justify-center lg:py-20 py-8">
           <div className="grid md:grid-cols-2 grid-cols-1 md:grid-row-2 grid-rows-1 gap-6 items-center justify-center text-center">
-            <div className="bg-btn-1 p-6 lg:w-96 w-72 space-y-4">
+            {/* <div className="bg-btn-1 p-6 lg:w-96 w-72 space-y-4">
               <p className="font-semibold text-xl">Total Stakers</p>
               <p className="font-bold text-3xl">{Stake_history.TotalStaker}</p>
             </div>
@@ -178,30 +197,42 @@ if(Number(getInput)>=Number(10000)){
               <p className="font-bold text-3xl">
                 {Stake_history.TotalStakedToken}
               </p>
+            </div> */}
+            <div className="bg-btn-2 p-6 lg:w-96 space-y-4">
+              <p className="font-semibold text-xl">Total Value Locked</p>
+              <p className="font-bold text-3xl">
+                {Stake_history.UserInformationdata}
+              </p>
             </div>
-            <div className="bg-btn-2 p-6 lg:w-96 space-y-4  ">
+            <div className="bg-btn-2 p-6 lg:w-96 space-y-4">
+              <p className="font-semibold text-xl">WithdrawAble Reward</p>
+              <p className="font-bold text-3xl">
+                {Stake_history.WithdrawRewardAmount}
+              </p>
+            </div>
+            {/* <div className="bg-btn-2 p-6 lg:w-96 space-y-4  ">
               <p className="font-semibold text-xl">Total Withdrawn</p>
               <p className="font-bold text-3xl">
                 {Stake_history.totalWithdrawanToken}
               </p>
-            </div>
-            <div className="bg-btn-1 p-6 lg:w-96 space-y-4">
+            </div> */}
+            {/* <div className="bg-btn-1 p-6 lg:w-96 space-y-4">
               <p className="font-semibold text-xl">Contract Balance</p>
               <p className="font-bold text-3xl">{Stake_history.Balance_of}</p>
-            </div>
+            </div> */}
           
-              <div className="bg-btn-1 p-6 lg:w-96 space-y-4">
+              {/* <div className="bg-btn-1 p-6 lg:w-96 space-y-4">
                 <p className="font-semibold text-xl">Unclaimed Reward </p>
                 <p className="font-bold text-3xl">
                   {Stake_history.realtimeReward}
                 </p>
-              </div>
-              <div className="bg-btn-2 p-6 lg:w-96 space-y-4  ">
+              </div> */}
+              {/* <div className="bg-btn-2 p-6 lg:w-96 space-y-4  ">
               <p className="font-semibold text-xl">Total Value Locked</p>
               <p className="font-bold text-3xl">
                 {Stake_history.tvl} USD
               </p>
-            </div>
+            </div> */}
               
            
           </div>
