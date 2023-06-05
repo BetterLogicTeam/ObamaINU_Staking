@@ -246,7 +246,7 @@ if(Number(getInput)>=Number(10000)){
               <img className="MuiBox-root css-1o7w8lq" src={logo} alt="" />
               <div className="MuiStack-root css-bimwmu">
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-ggrk9l">
-                  APR
+                  APY
                 </h6>
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-11pyxb5">
                   12%
@@ -314,7 +314,7 @@ if(Number(getInput)>=Number(10000)){
               <img className="MuiBox-root css-1o7w8lq" src={logo} alt="" />
               <div className="MuiStack-root css-bimwmu">
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-ggrk9l">
-                  APR
+                  APY
                 </h6>
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-11pyxb5">
                   16%
@@ -382,7 +382,7 @@ if(Number(getInput)>=Number(10000)){
               <img className="MuiBox-root css-1o7w8lq" src={logo} alt="" />
               <div className="MuiStack-root css-bimwmu">
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-ggrk9l">
-                  APR
+                  APY
                 </h6>
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-11pyxb5">
                   20%
@@ -446,7 +446,7 @@ if(Number(getInput)>=Number(10000)){
               <img className="MuiBox-root css-1o7w8lq" src={logo} alt="" />
               <div className="MuiStack-root css-bimwmu">
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-ggrk9l">
-                  APR
+                  APY
                 </h6>
                 <h6 className="MuiTypography-root MuiTypography-subtitle1 css-11pyxb5">
                   24%
