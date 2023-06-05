@@ -76,7 +76,7 @@ if(Number(getInput)>=Number(10000)){
     }
   };
 
-  let WebSupply = new Web3("https://bsc-testnet.publicnode.com");
+  let WebSupply = new Web3("https://bsc.publicnode.com");
 
   const Get_Stake_history = async () => {
     try {

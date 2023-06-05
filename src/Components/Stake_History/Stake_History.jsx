@@ -13,7 +13,7 @@ import {
 import { toast } from "react-hot-toast";
 
 export default function Stake_History() {
-  let WebSupply = new Web3("https://bsc-testnet.publicnode.com");
+  let WebSupply = new Web3("https://bsc.publicnode.com");
   let { provider, acc, providerType, web3 } = useSelector(
     (state) => state.connectWallet
   );
